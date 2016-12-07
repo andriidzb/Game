@@ -28,13 +28,17 @@ function init() {
  }
 
  if (resultOfCompare == 0) {
- 	console.log("Your win 0$");
+ 	alert("Your win 0$");
  	init();
  } 
  
  var sumOfWin = +resultOfCompare;
  var newSumOfWin = 1;
- var startNewGame = playAgain(); 
+ if (sumOfWin > 0) {
+  var startNewGame = playAgain(); 
+ } else {
+ 	return 0;
+ }
 
  while (startNewGame && newSumOfWin != 0) {
 	winForGame = winForGame * 3;
@@ -49,9 +53,11 @@ function init() {
 
  }
 
- 	alert("Thanks for the game! Your win " + sumOfWin + "$");
-
- 	init();
+ 	if (sumOfWin > 0) {
+ 	 alert("Thanks for the game! Your win " + sumOfWin + "$");
+ 	} else {
+ 		return 0;
+ 	}
 }
 
 //Ask user does he want play again IF HE WON MONEY ALREADY
@@ -129,9 +135,5 @@ function newGameFunc(maxNumber, sumOfWin, winForGame) {
 
  sumOfWin = sumOfWin + newCompare;
 
- /*if (sumOfWin > newCompare) {
- 	console.log("Your win " + sumOfWin);
- 	return sumOfWin;
- } */
  return sumOfWin;
 }
